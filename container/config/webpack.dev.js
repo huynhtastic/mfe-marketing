@@ -19,6 +19,7 @@ const devConfig = {
         // marketing@ matches with name in remote webpack config
         marketing: "marketing@http://localhost:8081/remoteEntry.js",
       },
+      shared: ["react-dom", "react"],
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",

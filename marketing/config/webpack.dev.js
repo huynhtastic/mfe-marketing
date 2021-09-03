@@ -18,6 +18,7 @@ const devConfig = {
       exposes: {
         "./MarketingApp": "./src/bootstrap",
       },
+      shared: ["react-dom", "react"],
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
