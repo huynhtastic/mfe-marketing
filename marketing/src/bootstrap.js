@@ -4,8 +4,10 @@ import { createMemoryHistory } from "history";
 import App from "./App";
 
 // mount function to start app
-const mount = (el) => {
+const mount = (el, { onNavigate }) => {
   const history = createMemoryHistory();
+  onNavigate && history.listen(onNavigate);
+
   ReactDOM.render(<App history={history} />, el);
 };
 
@@ -13,9 +15,7 @@ const mount = (el) => {
 if (process.env.NODE_ENV === "development") {
   const devRoot = document.querySelector("#_marketing-dev-root");
 
-  if (devRoot) {
-    mount(devRoot);
-  }
+  devRoot && mount(devRoot, {});
 }
 
 // case 2: assume we are in container, export mount
