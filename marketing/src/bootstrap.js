@@ -9,6 +9,15 @@ const mount = (el, { onNavigate }) => {
   onNavigate && history.listen(onNavigate);
 
   ReactDOM.render(<App history={history} />, el);
+
+  return {
+    onParentNavigate({ pathname: nextPathname }) {
+      const { pathname } = history.location;
+      const isDiffRoute = pathname !== nextPathname;
+
+      isDiffRoute && history.push(nextPathname);
+    },
+  };
 };
 
 // case 1: dev/isolation
