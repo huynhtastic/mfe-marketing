@@ -8,7 +8,7 @@ const devConfig = {
   devServer: {
     port: 8080,
     historyApiFallback: {
-      index: "index.html",
+      index: "/index.html",
     },
   },
   plugins: [
@@ -18,6 +18,7 @@ const devConfig = {
         // marketing key is for imports used locally
         // marketing@ matches with name in remote webpack config
         marketing: "marketing@http://localhost:8081/remoteEntry.js",
+        auth: "auth@http://localhost:8082/remoteEntry.js",
       },
       shared: packageJson.dependencies,
     }),
